@@ -1,25 +1,25 @@
-<!-- <div> -->
-
+<div class="field">
+<label>Имя:</label>
   <input
     type="text"
     title="Введите число от 1 до 9" pattern="[1-9]"
-    placeholder="Add todo title..."
+    placeholder="Ваше имя"
     [(ngModel)]="firstName"
   >
 
     <!-- (keydown.enter)="pushUserData()" -->
   <br>
-
+  <label>Фамилия:</label>
   <input
     type="text"
-    placeholder="Add todo title..."
+    placeholder="Ваша фамилия"
     [(ngModel)]="lastName"
     (keydown.enter)="pushUserData()"
   >
   <!-- <mat-slider min="1" max="100" step="1" value="1"></mat-slider> -->
 
   <br>
-
+  <label>День Рождения:</label>
   <input 
     type="date"
     [(ngModel)]="dateOfBirth"
@@ -28,45 +28,25 @@
 
     <br>
     
-    <input  list="country"
-            type="text"
-            placeholder="Add todo title..."
-            [(ngModel)]="framework"
-            (keydown.enter)="pushUserData()"
-    >
-    <datalist id="country">
-      <option value="angular"></option>
-      <option value="react"></option>
-      <option value="vue"></option>
-    </datalist>
-
-    <br>
-    
-    <input  list="countrytwo"
-            type="text"
-            placeholder="Add todo title..."
-            [(ngModel)]="frameworkVersion"
-            (keydown.enter)="pushUserData()"
-            disabled = "true"
-    >
-    <datalist id="countrytwo">
-      <option value="111"></option>
-      <option value="222"></option>
-      <option value="333"></option>
-    </datalist>
+    <label>js технологии:</label>
+    <select [(ngModel)]="framework" (click)="frameSelect()">
+      <option *ngFor="let el of mast">{{el}}</option>
+    </select>
 
     <br>
 
+    <label>Версия:</label>
+    <select [(ngModel)]="frameworkVersion" [disabled]="!flagversion">
+      <option *ngFor="let el of versins">{{el}}</option>
+    </select>
+
+    <br>
+    <label>email:</label>
   <input
   type="email"
-  placeholder="Add todo title..."
+  placeholder="Ваша эл. почта"
   [(ngModel)]="email"
-  (keydown.enter)="pushUserData()"
   >
+</div>
 
-
-
-
-  <button (keydown.enter)="pushUserData()" (click)="pushUserData()">Add todo</button>
-
-<!-- </div> -->
+<button (keydown.enter)="pushUserData()" (click)="pushUserData()">Отправить</button>
