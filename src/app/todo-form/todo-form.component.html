@@ -1,0 +1,72 @@
+<!-- <div> -->
+
+  <input
+    type="text"
+    title="Введите число от 1 до 9" pattern="[1-9]"
+    placeholder="Add todo title..."
+    [(ngModel)]="firstName"
+  >
+
+    <!-- (keydown.enter)="pushUserData()" -->
+  <br>
+
+  <input
+    type="text"
+    placeholder="Add todo title..."
+    [(ngModel)]="lastName"
+    (keydown.enter)="pushUserData()"
+  >
+  <!-- <mat-slider min="1" max="100" step="1" value="1"></mat-slider> -->
+
+  <br>
+
+  <input 
+    type="date"
+    [(ngModel)]="dateOfBirth"
+    (keydown.enter)="pushUserData()"
+    >
+
+    <br>
+    
+    <input  list="country"
+            type="text"
+            placeholder="Add todo title..."
+            [(ngModel)]="framework"
+            (keydown.enter)="pushUserData()"
+    >
+    <datalist id="country">
+      <option value="angular"></option>
+      <option value="react"></option>
+      <option value="vue"></option>
+    </datalist>
+
+    <br>
+    
+    <input  list="countrytwo"
+            type="text"
+            placeholder="Add todo title..."
+            [(ngModel)]="frameworkVersion"
+            (keydown.enter)="pushUserData()"
+            disabled = "true"
+    >
+    <datalist id="countrytwo">
+      <option value="111"></option>
+      <option value="222"></option>
+      <option value="333"></option>
+    </datalist>
+
+    <br>
+
+  <input
+  type="email"
+  placeholder="Add todo title..."
+  [(ngModel)]="email"
+  (keydown.enter)="pushUserData()"
+  >
+
+
+
+
+  <button (keydown.enter)="pushUserData()" (click)="pushUserData()">Add todo</button>
+
+<!-- </div> -->
