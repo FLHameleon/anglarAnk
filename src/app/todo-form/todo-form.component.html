@@ -2,19 +2,19 @@
 <label>Имя:</label>
   <input
     type="text"
-    title="Введите число от 1 до 9" pattern="[1-9]"
     placeholder="Ваше имя"
     [(ngModel)]="firstName"
+    required
   >
 
-    <!-- (keydown.enter)="pushUserData()" -->
+    <!-- (keydown.enter)="pushUserData()" pattern="[1-9]" title="Введите число от 1 до 9"-->
   <br>
   <label>Фамилия:</label>
   <input
     type="text"
     placeholder="Ваша фамилия"
     [(ngModel)]="lastName"
-    (keydown.enter)="pushUserData()"
+    required
   >
   <!-- <mat-slider min="1" max="100" step="1" value="1"></mat-slider> -->
 
@@ -23,12 +23,12 @@
   <input 
     type="date"
     [(ngModel)]="dateOfBirth"
-    (keydown.enter)="pushUserData()"
+    required
     >
 
     <br>
     
-    <label>js технологии:</label>
+    <label>JS технологии:</label>
     <select [(ngModel)]="framework" (click)="frameSelect()">
       <option *ngFor="let el of mast">{{el}}</option>
     </select>
@@ -46,7 +46,28 @@
   type="email"
   placeholder="Ваша эл. почта"
   [(ngModel)]="email"
+  required
   >
+
+  <br>
+  <div *ngFor="let el of masHobby">
+  <label>Хобби:</label>
+  <input
+  type="text"
+  placeholder="Название хобби"
+  [(ngModel)]="el.name"
+  required
+  >
+  <input
+  type="text"
+  placeholder="Длительность"
+  [(ngModel)]="el.duration"
+  required
+  >
+  </div>
+    <button (click)="addHobbi()">Прибавить</button>
+    <button (click)="delHobbi()"[disabled]="masHobby.length < 2">Удалить</button>
+
 </div>
 
-<button (keydown.enter)="pushUserData()" (click)="pushUserData()">Отправить</button>
+<button (click)="pushUserData()">Отправить</button>

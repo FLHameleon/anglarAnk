@@ -10,36 +10,6 @@ input:invalid {
   box-shadow: none;
 }
 
-input:focus:valid {
-  border-color: green;
-  color: green;
-  box-shadow: none;
-}
-
-input:focus:invalid {
-  border-color: red;
-  color: red;
-  box-shadow: none;
-}
-
-input:focus:required:valid {
-  border-color: green;
-  color: green;
-  box-shadow: none;
-}
-
-input:focus:required:invalid {
-  border-color: green;
-  color: green;
-  box-shadow: none;
-}
-
-// input[type=text] {
-//   height: 40px;
-//   font-size: 30px;
-// }
-
-
 .field {clear:both; text-align:right; line-height:25px;}
 label {float:left; padding-right:1px;}
 .main {float:left}

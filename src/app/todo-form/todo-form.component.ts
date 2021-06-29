@@ -28,6 +28,8 @@ export class TodoFormComponent implements OnInit {
   vaiant2: Array<string> = ['2.1.2', '3.2.4', '4.3.1'];
   vaiant3: Array<string> = ['3.3.1', '5.2.1', '5.1.3'];
 
+  masHobby: Array<any> = [{name: '', duration: ''}];
+
 
   constructor(private todosService: TodosService) {
   }
@@ -55,34 +57,60 @@ export class TodoFormComponent implements OnInit {
         }
       }
     }
+    else this.versins = []
   }
 
   pushUserData() {
     const todotodo: Todo = {
-      id: Date.now(),
       firstName: this.firstName,
       lastName: this.lastName,
       dateOfBirth: this.dateOfBirth,
       framework: this.framework,
       frameworkVersion: this.frameworkVersion,
-      email: this.email
+      email: this.email,
+      hobby: this.masHobby,
+      id: Date.now(),
     }
 
 
     if(this.email == "test@test.test") {
       const obs$ = timer(2000)
       obs$.subscribe(() => {
-        alert('В базе данных почта test@test.test уже есть ')
+        alert('Oшибкa: такой емейл уже существует')
       })
     }
-    else this.todosService.pushUserData(todotodo)
+    else {
+      // console.log('this = ', this)
+      if(
+        this.firstName == '' ||
+        this.lastName == '' ||
+        this.dateOfBirth == '' ||
+        this.framework == '' ||
+        this.frameworkVersion == '' ||
+        this.email == '' ||
+        this.masHobby[0].name == '' ||
+        this.masHobby[0].duration == ''
+      ) { alert('ЗАПОЛНЕНЫ НЕ ВСЕ ПОЛЯ') }
+      else {
+        this.todosService.pushUserData(todotodo)
 
-    this.firstName = ''
-    this.lastName = ''
-    this.dateOfBirth = ''
-    this.framework = ''
-    this.frameworkVersion = ''
-    this.email = ''
+        this.firstName = ''
+        this.lastName = ''
+        this.dateOfBirth = ''
+        this.framework = ''
+        this.frameworkVersion = ''
+        this.email = ''
+        this.masHobby = [{name: '', duration: ''}];
+      }
+    }
+  }
+
+  addHobbi() {
+    this.masHobby.push({name: '', duration: ''})
+  }
+
+  delHobbi() {
+    this.masHobby.pop();
   }
 
 
