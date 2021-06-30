@@ -19,5 +19,6 @@ export class TodosService {
 
   pushUserData(todo: Todo) {
     console.log('todo = ', todo)
+    alert(JSON.stringify(todo) + '\n(копия в консоле)')
   }
 }

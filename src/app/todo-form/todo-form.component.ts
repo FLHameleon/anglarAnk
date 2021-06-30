@@ -24,9 +24,9 @@ export class TodoFormComponent implements OnInit {
   mast: Array<string> = ['', 'angular', 'react', 'vue'];
   versins: Array<string> = [];
 
-  vaiant1: Array<string> = ['1.1.1', '1.2.1', '1.3.3'];
-  vaiant2: Array<string> = ['2.1.2', '3.2.4', '4.3.1'];
-  vaiant3: Array<string> = ['3.3.1', '5.2.1', '5.1.3'];
+  vaiant1: Array<string> = ['', '1.1.1', '1.2.1', '1.3.3'];
+  vaiant2: Array<string> = ['', '2.1.2', '3.2.4', '4.3.1'];
+  vaiant3: Array<string> = ['', '3.3.1', '5.2.1', '5.1.3'];
 
   masHobby: Array<any> = [{name: '', duration: ''}];
 
